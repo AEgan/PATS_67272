@@ -1,0 +1,31 @@
+<h1>Vaccinations Given at PATS</h1><br>
+
+<table class="datagrid">
+  <thead class="datagrid">
+    <th>Date</th>
+    <th>Pet</th>
+		<th>Vaccine</th>
+		<th>Dosage</th>
+		<th>&nbsp;</th>
+  </thead>
+  <% for vaccination in @vaccinations %>
+    <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+      <td><%= link_to vaccination.visit.date.strftime("%m/%d/%y"), vaccination_path(vaccination) %></td>
+      <td><%= link_to vaccination.visit.pet.name, pet_path(vaccination.visit.pet) %></td>
+      <td><%= link_to vaccination.vaccine.name, vaccine_path(vaccination.vaccine) %></td>
+			<td><%= vaccination.dosage %></td>
+	  <td align="center">
+			<%= link_to(image_tag("icons/edit_dg.gif", :border => 0), edit_vaccination_path(vaccination))  %>&nbsp;
+			<%= link_to(image_tag("icons/delete_dg.gif", :border => 0), vaccination_path(vaccination), :confirm => 'Are you sure you wish to delete this information?', :method => :delete) %>
+	  </td>
+    </tr>
+  <% end %>
+</table>
+<p class="supertiny"></p>
+
+<!-- Add the pagination using will_paginate gem -->
+<span class="smtext">
+<%= will_paginate @vaccinations, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>
+
+<p><strong><%= link_to "Add A New Vaccination", new_vaccination_path %></strong></p>

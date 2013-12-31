@@ -1,0 +1,31 @@
+
+<h1>Active Pets at PATS</h1><br>
+
+<table class="datagrid">
+  <thead class="datagrid">
+    <th>Pet</th>
+		<th>Type</th>
+    <th>Owner</th>
+	<th>&nbsp;</th>
+  </thead>
+  <% for pet in @pets %>
+    <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+      <td><%= link_to pet.name, pet_path(pet) %></td>
+      <td><%= pet.animal.name %></td>
+      <td><%= link_to pet.owner.name, owner_path(pet.owner) %></td>
+
+	  <td align="center">
+			<%= link_to(image_tag("icons/edit_dg.gif", :border => 0), edit_pet_path(pet))  %>&nbsp;
+			<%= link_to(image_tag("icons/delete_dg.gif", :border => 0), pet_path(pet), :confirm => 'Are you sure you wish to delete this information?', :method => :delete) %>
+	  </td>
+    </tr>
+  <% end %>
+</table>
+<p class="supertiny"></p>
+
+<!-- Add the pagination using will_paginate gem -->
+<span class="smtext">
+<%= will_paginate @pets, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>
+
+<p><strong><%= link_to "Add A New Pet", new_pet_path %></strong></p>

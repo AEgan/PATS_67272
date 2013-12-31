@@ -1,0 +1,7 @@
+== PATS: 67-272
+
+This is a basic Rails app that was built as a class demonstration in the spring of 2014.  This is the first of several basic projects designed help students become more familiar with the Rails 4 framework.  This is a basic Rails project without many bells and whistles; future projects will be more polished.  In addition, there are places in the application where we deliberately code similar functionality in different ways to show the ranges of options (after all, in Ruby there is not just one way to do most things).
+
+The class is Application Design & Development and is for Information Systems students at Carnegie Mellon University (campuses both in Pittsburgh and Doha).  We have posted this code on github.com in a public directory so that (a) it is readily accessible to students in both PA and Qatar and (b) that students will get a little familiarity with github.com.
+
+This project does require the use of several gems to work properly.  Check the Gemfile to see which gems are used.  Also, testing requires the gems factory_girl and shoulda be installed before running tests.

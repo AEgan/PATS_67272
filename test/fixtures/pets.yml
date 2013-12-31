@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  animal_id: 1
+  owner_id: 1
+  name: MyString
+  female: false
+  date: 
+  active: false
+
+two:
+  animal_id: 1
+  owner_id: 1
+  name: MyString
+  female: false
+  date: 
+  active: false

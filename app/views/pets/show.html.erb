@@ -1,0 +1,10 @@
+<table>
+	<tr valign="top">			
+		<%= render :partial => "pet_data" %>		
+	
+		<% unless @recent_visits.empty? %>
+		  <%= render :partial => "recent_visits" %>
+		<% end %>
+	</tr>
+</table>
+<p class="supertiny">&nbsp;</p>

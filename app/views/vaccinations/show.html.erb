@@ -1,0 +1,28 @@
+<h2>Vaccination Information:</h2>
+
+<p>
+  <strong>Pet:</strong>
+  <%= link_to @vaccination.visit.pet.name, pet_path(@vaccination.visit.pet) %> (<%= @vaccination.visit.pet.animal.name %>)
+</p>
+<p>
+  <strong>Owner:</strong>
+  <%= link_to "#{@vaccination.visit.pet.owner.first_name} #{@vaccination.visit.pet.owner.last_name}", owner_path(@vaccination.visit.pet.owner) %>
+</p>
+<p>
+  <strong>Visit Date:</strong>
+  <%= link_to @vaccination.visit.date.strftime("%B %d, %Y"), visit_path(@vaccination.visit) %>
+</p>
+<p>
+  <strong>Vaccine:</strong>
+  <%= link_to @vaccination.vaccine.name, vaccine_path(@vaccination.vaccine) %>
+</p>
+<p>
+  <strong>Dosage:</strong>
+  <%= @vaccination.dosage %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_vaccination_path(@vaccination) %> |
+  <%= link_to "Destroy", @vaccination, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", vaccinations_path %>
+</p>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pet_id: 1
+  date: 2013-12-30
+  weight: 1
+  notes: MyText
+
+two:
+  pet_id: 1
+  date: 2013-12-30
+  weight: 1
+  notes: MyText

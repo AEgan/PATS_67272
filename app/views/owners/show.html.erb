@@ -1,0 +1,19 @@
+<table>
+	<tr valign="top">	
+		<td width="300">
+			<%= render :partial => "owner_data" %>
+		</td>
+		<td width="10">&nbsp;</td>
+		<td width="250">
+			<% unless @current_pets.empty? %>
+			  <%= render :partial => "current_pets" %>
+			<% end %>
+		</td>
+	</tr>
+</table>
+<p class="smtext">&nbsp;</p>
+<p>&nbsp;
+  <%= link_to "Edit", edit_owner_path(@owner) %> |
+  <%= link_to "Destroy", @owner, method: :delete, data: { confirm: 'Are you sure you wish to delete this information?' } %> |
+  <%= link_to "View All", owners_path %>
+</p>

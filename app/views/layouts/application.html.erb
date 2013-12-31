@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PATS :: <%= controller.controller_name.capitalize %></title>
+  <%= favicon_link_tag %>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="wrap">
+    <div id="header">
+      <%= link_to(image_tag('layout/PATS_logo2_900.jpg'), home_path) %>
+    </div>
+    <br />
+    <%# render :partial => 'partials/navigation' %>
+
+    <div style="clear:both;"></div>
+      <div id="body">
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, id: "flash_#{name}" %>
+        <% end %>
+      <table border="0">
+        <tr>
+          <td>
+            <!-- if logged in, give side navigation for the vet  -->
+            <% if logged_in? %>
+              <%= render 'partials/side_nav' %>
+            <!-- otherwise display a nice collection of animal pictures  -->
+            <% else %>
+              <%= render 'partials/animal_pics' %>
+            <% end %>
+          </td>
+          <td width="5">&nbsp;</td>
+          <td><%= yield %></td>
+        </tr>
+      </table>
+
+    </div> <!-- end of body div -->
+
+    <%= render 'partials/footer' %>
+  </div><!-- end of wrap div -->
+</body>
+</html>
